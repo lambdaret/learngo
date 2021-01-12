@@ -1,18 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/lambdaret/learngo/accounts"
+)
 
 
-type person struct {
-	name string
-	age int
-	favFood []string
-}
 
 func main() {
-	favFood := [] string{"kimchi", "ramen"}
-	// nico := person {"nico", 18, favFood}
-	nico := person {name:"nico", age:18, favFood:favFood}
-
-	fmt.Println(nico.name)
+	account := accounts.NewAccount("nico")
+	
+	fmt.Println(account)
 }
