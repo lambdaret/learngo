@@ -7,21 +7,17 @@ import (
 
 
 func main() {
-	c := make(chan bool)
+	c := make(chan string)
 	people := [2]string{"nico", "flynn"}
 	for _, person := range people {
 		go isSexy(person, c)
 	}
 
-	// result := <- c
-	// fmt.Println(result)
-	fmt.Println(<-c)
-	fmt.Println(<-c)
+	for i:=0;i<len(people); i++ {
+		fmt.Println(<-c)
+	}
 
 
-	// go sexyCount("nico")
-	// go sexyCount("flynn")
-	// time.Sleep(time.Second *5)
 }
 
 func sexyCount(person string){
@@ -31,10 +27,9 @@ func sexyCount(person string){
 	}
 }
 
-func isSexy(person string, c chan bool) {
+func isSexy(person string, c chan string) {
 	time.Sleep(time.Second * 5)
-	fmt.Println(person)
-	c <- true
+	c <- person + " is sexy"
 }
 
 // import (
